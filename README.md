@@ -21,4 +21,4 @@ This is a php extension that will allow you to create a direct link between a la
 
 ## License
 
-GNU General Public License v2.0
+[GPLv2](LICENSE)
