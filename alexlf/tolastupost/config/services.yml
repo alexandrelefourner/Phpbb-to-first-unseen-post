@@ -1,0 +1,11 @@
+services:
+    alexlf.tolastupost.listener:
+        class: alexlf\tolastupost\event\main_listener
+        arguments:
+            - '@controller.helper'
+            - '@template'
+            - '@user'
+            - '%core.php_ext%'
+            - '@config'
+        tags:
+            - { name: event.listener }
