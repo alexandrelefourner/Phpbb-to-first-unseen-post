@@ -86,7 +86,7 @@ class main_listener implements EventSubscriberInterface
 		//Change SQL request
 			$sql_arr = $event["sql_ary"];
 			$sql_arr["LEFT_JOIN"][sizeof($sql_arr["LEFT_JOIN"])] = array(
-					'FROM'	=> array(phpbb_posts => 'fp'),
+					'FROM'	=> array(POSTS_TABLE => 'fp'),
 					'ON'	=> "f.forum_last_post_id = fp.post_id"
 				);
 			$sql_arr["SELECT"] .= ", fp.topic_id as last_topic_id";
