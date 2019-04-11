@@ -1,6 +1,6 @@
 services:
-    alexlf.tolastupost.listener:
-        class: alexlf\tolastupost\event\main_listener
+    alexlf.tofirstunseenpost.listener:
+        class: alexlf\tofirstunseenpost\event\main_listener
         arguments:
             - '@controller.helper'
             - '@template'

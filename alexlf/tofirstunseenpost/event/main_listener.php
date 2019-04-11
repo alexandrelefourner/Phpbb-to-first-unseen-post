@@ -8,7 +8,7 @@
  *
  */
 
-namespace alexlf\tolastupost\event;
+namespace alexlf\tofirstunseenpost\event;
 
 /**
  * @ignore
