@@ -1,4 +1,4 @@
-# phpBB To Last Unseen Post Plugin
+# phpBB To First Unseen Post Plugin
 
 This is a php extension that will allow you to create a direct link between a last unseen post from a topic, no matter if it is on the last page or not.
 
