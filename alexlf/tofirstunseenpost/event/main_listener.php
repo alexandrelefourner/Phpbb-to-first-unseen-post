@@ -99,9 +99,9 @@ class main_listener implements EventSubscriberInterface
 		//Modify the link which will be displayed to the user.
 		if($event["forum_row"]["S_UNREAD_FORUM"]){
 			$frow = $event["forum_row"];
-			$frow["U_LAST_POST"] = "./viewtopic.php?t=".$event["row"]["last_topic_id"]."&view=unread#unread";
+			$frow["U_LAST_POST"] = append_sid($this->phpbb_root_path."viewtopic.".$this->php_ext, "t=".$event["row"]["last_topic_id"]."&amp;view=unread", "#unread");
 			$event["forum_row"] = $frow;
 		}
 	}
-	
+
 }
