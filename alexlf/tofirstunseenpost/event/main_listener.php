@@ -63,7 +63,7 @@ class main_listener implements EventSubscriberInterface
 
 	public function viewforum_modify_topicrow($event){
 		//Change the topic link in the forum view.
-		if($event["topic_row"]["S_UNREAD_TOPIC"]){
+		if ($event["topic_row"]["S_UNREAD_TOPIC"]){
 			$vd = $event["topic_row"];
 			$vd["U_LAST_POST"] = $vd["U_NEWEST_POST"];
 			$event["topic_row"] = $vd;
@@ -76,7 +76,7 @@ class main_listener implements EventSubscriberInterface
 			$parent_id = $event["parent_id"];
 			$forum_rows = $event["forum_rows"];
 			$row =  $event["row"];
-			if($row['forum_last_post_time'] == $forum_rows[$parent_id]['forum_last_post_time']){
+			if ($row['forum_last_post_time'] == $forum_rows[$parent_id]['forum_last_post_time']){
 				$forum_rows[$parent_id]["last_topic_id"] = $row["last_topic_id"];
 			}
 			$event["forum_rows"] = $forum_rows;
@@ -97,7 +97,7 @@ class main_listener implements EventSubscriberInterface
 	
 	public function modify_end_link($event){
 		//Modify the link which will be displayed to the user.
-		if($event["forum_row"]["S_UNREAD_FORUM"]){
+		if ($event["forum_row"]["S_UNREAD_FORUM"]){
 			$frow = $event["forum_row"];
 			$frow["U_LAST_POST"] = append_sid($this->phpbb_root_path."viewtopic.".$this->php_ext, "t=".$event["row"]["last_topic_id"]."&amp;view=unread", "#unread");
 			$event["forum_row"] = $frow;
