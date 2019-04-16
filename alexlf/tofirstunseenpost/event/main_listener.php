@@ -58,6 +58,7 @@ class main_listener implements EventSubscriberInterface
 		$this->user     = $user;
 		$this->php_ext  = $php_ext;
 		$this->config  = $config;
+		// $this->phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './';
 	}
 
 
@@ -97,9 +98,11 @@ class main_listener implements EventSubscriberInterface
 	
 	public function modify_end_link($event){
 		//Modify the link which will be displayed to the user.
+		global $phpbb_root_path;
+		
 		if ($event["forum_row"]["S_UNREAD_FORUM"]){
 			$frow = $event["forum_row"];
-			$frow["U_LAST_POST"] = append_sid($this->phpbb_root_path."viewtopic.".$this->php_ext, "t=".$event["row"]["last_topic_id"]."&amp;view=unread", "#unread");
+			$frow["U_LAST_POST"] = append_sid($phpbb_root_path."viewtopic.".$this->php_ext, "t=".$event["row"]["last_topic_id"]."&amp;view=unread", "#unread");
 			$event["forum_row"] = $frow;
 		}
 	}
