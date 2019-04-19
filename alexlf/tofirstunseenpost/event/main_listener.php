@@ -67,6 +67,7 @@ class main_listener implements EventSubscriberInterface
 		if ($event["topic_row"]["S_UNREAD_TOPIC"]){
 			$vd = $event["topic_row"];
 			$vd["U_LAST_POST"] = $vd["U_NEWEST_POST"];
+			unset($vd["S_UNREAD_TOPIC"]);
 			$event["topic_row"] = $vd;
 		}
 	}
